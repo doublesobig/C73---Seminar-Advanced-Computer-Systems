@@ -1,0 +1,117 @@
+\documentclass[openany]{scrreprt}
+%fixing wrong pagenumbers, adding header
+\usepackage[automark, autooneside=true,headsepline]{scrlayer-scrpage}
+\clearpairofpagestyles
+\ihead{\pagemark}
+\ohead{\rightmark}
+\ofoot*{\pagemark}
+
+%include libs
+\usepackage{graphicx} %for implementing pictures
+\usepackage[dvipsnames]{xcolor} %for costum colors
+\usepackage{colortbl} % for colored cells
+\usepackage{booktabs} % horizontal lines in table region (looks better than normal \hline}
+\usepackage{tocstyle} % personalize table of contents
+\usetocstyle{allwithdot} % adds dots in toc
+%declare costumized colors
+\renewcommand{\familydefault}{\sfdefault}
+\definecolor{htwgreen}{HTML}{76B900}
+\definecolor{htwgrey}{HTML}{AFAFAF}
+%stuff for personalized captions, chapters e.g.
+\addtokomafont{sectioning}{\color{htwgreen}}
+\addtokomafont{disposition}{\rmfamily}
+\setkomafont{chapter}{\large\bfseries}
+\setkomafont{section}{\normalsize\bfseries}
+\setkomafont{subsection}{\normalsize\bfseries\centering}
+\setkomafont{chapterentry}{\usekomafont{chapter}}
+\settocfeature[toc][0]{entryhook}{\usekomafont{chapter}}
+\settocfeature[toc][1]{entryhook}{\usekomafont{section}}
+
+
+\begin{document}
+\begin{titlepage}
+	\flushright
+	\includegraphics[width=0.4\textwidth]{./data/CE_Logo.png}\par\vspace{0cm}
+	\Large{\textbf{\textcolor{htwgrey}{C73 - Seminar Advanced Computer Systems}}}\\
+	\Large{\textbf{\textcolor{htwgrey}{Object Detection and Recognition}}}\\
+	\Large{\textcolor{htwgreen}{Technical Report}}\\
+	\Large{\textcolor{htwgrey}{Computer Engineering}}\\
+	\begin{figure}[b]
+	\flushright
+	Version 1 \ \\
+	\today{}
+	\end{figure}
+\end{titlepage}
+
+\tableofcontents
+
+\newpage
+
+\chapter{Use this for Chapters} % sets numbers for table of content
+
+\section{Use this for Sections} % subdivision of chapter above
+
+Simple text should remain black
+
+\subsection{Use this for Subsections}
+
+\paragraph{Non numbered header}\ \\
+
+\begin{itemize}
+\item Use this for not numbered listings
+	\begin{itemize}
+	\item this is how to do indent points
+	\end{itemize}
+\end{itemize}
+
+\begin{enumerate}
+\item Use this for numbered listings
+	\begin{enumerate}
+	\item works in the exact same way
+	\end{enumerate}
+\end{enumerate}
+
+\begin{enumerate}
+\item You can even mix things up
+	\begin{itemize}
+	\item like this
+	\item will work the other way around aswell
+	\end{itemize}
+\end{enumerate}
+
+\ \\
+
+This is a template for tables
+\begin{table}[!h]
+\begin{tabular}{@{}cll@{}}
+\toprule
+\multicolumn{1}{l}{}                    & \multicolumn{1}{c}{\cellcolor[HTML]{AFAFAF}\textbf{Column 1}} & \multicolumn{1}{c}{\cellcolor[HTML]{AFAFAF}\textbf{Column 2}} \\ \midrule
+\cellcolor[HTML]{AFAFAF}\textbf{Line 1} & Text                                                          & Text                                                          \\
+\cellcolor[HTML]{AFAFAF}\textbf{Line 2} & Text                                                          & Text                                                          \\ \bottomrule
+\end{tabular}
+\caption{Template}
+\label{tbl:example-table}
+\end{table}
+
+\newpage
+%h = here
+%t = top
+%b = bottom
+% p = page (place it on a page containing only floats, such as figures and tables
+% ! allows to ignore certain parameters of LaTeX for float placement
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.4\textwidth]{./data/CE_Logo.png}
+\caption{Figure Text}
+\label{img:example-figure}
+\end{figure}
+
+\newpage
+
+\chapter{Glossary}
+\begin{description}
+\item[Glossary] 
+could be done this way
+\end{description}
+
+\end{document}
